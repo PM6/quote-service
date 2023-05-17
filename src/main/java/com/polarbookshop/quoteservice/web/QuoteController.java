@@ -29,7 +29,7 @@ public class QuoteController {
   }
 
   @GetMapping("/quotes/random/{genre}")
-  public Mono<Quote> getRandomQUote(@PathVariable Genre genre) {
+  public Mono<Quote> getRandomQuote(@PathVariable Genre genre) {
     return quoteService.getRandomQuoteByGenre(genre);
   }
 }

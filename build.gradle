@@ -18,6 +18,20 @@ dependencies {
     testImplementation 'io.projectreactor:reactor-test'
 }
 
+tasks.named('bootBuildImage') {
+    bukder = 'paketoobuildpacks/builder:tiny'
+    environment = ['BP_NATIVE_IMAGE': 'true']
+    imageName = "${project.name}"
+
+    docker {
+        publishRegistry {
+            username = project.findProperty("registryUsername")
+            password = project.findProperty("registryToken")
+            url = project.findProperty("registryUrl")
+        }
+    }
+}
+
 tasks.named('test') {
     useJUnitPlatform()
 }
