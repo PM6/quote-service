@@ -19,7 +19,7 @@ dependencies {
 }
 
 tasks.named('bootBuildImage') {
-    bukder = 'paketoobuildpacks/builder:tiny'
+    builder = 'paketoobuildpacks/builder:tiny'
     environment = ['BP_NATIVE_IMAGE': 'true']
     imageName = "${project.name}"
 
